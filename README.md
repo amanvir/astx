@@ -1,3 +1,9 @@
 # mental
 
-Query JavaScript ASTs via xpath
+Query JavaScript ASTs using xpath
+
+### Install
+
+```
+$ npm install --save mental
+```

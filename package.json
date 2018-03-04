@@ -1,0 +1,35 @@
+{
+  "name": "mental",
+  "version": "0.0.1",
+  "description": "query JavaScript ASTs via xpath",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "ava",
+    "build": "babel src -d dist",
+    "prepublish": "npm run build"
+  },
+  "author": "Amanvir Sangha <hello@amanvir.io> (https://amanvir.io)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amanvir/mental.git"
+  },
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "babel-cli": "^6.18.0",
+    "babel-preset-env": "^1.1.4",
+    "babel-register": "^6.18.0",
+    "eslint": "^3.12.2",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1"
+  },
+  "presets": [
+    "env"
+  ],
+  "ava": {
+    "require": "babel-register",
+    "babel": "inherit"
+  },
+  "dependencies": {}
+}
