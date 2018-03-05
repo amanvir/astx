@@ -1,5 +1,5 @@
 import test from 'ava'
-import Mental from '../src/mental.js'
+import Mental from '../src/index.js'
 
 test.beforeEach(t => {
   t.context.m = new Mental()
@@ -21,7 +21,7 @@ test('it finds usages of eval', t => {
   
   //expected
   const expected = { 
-    lineNumber: 2
+    lineNumber: 2,
     code: 'eval(x)'
   }
 
