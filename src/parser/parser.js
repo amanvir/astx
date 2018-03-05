@@ -1,9 +1,9 @@
 import { parseScript } from 'cherow'
 
 class Parser {
-  parse(code) {
+  parse (code) {
     return parseScript(code)
   }
 }
 
-module.exports = Parser;
+module.exports = Parser
