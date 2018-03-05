@@ -1,3 +1,5 @@
+import chreow from 'cherow'
+
 class Mental {
   constructor (src) {
     this.src = src
@@ -5,11 +7,11 @@ class Mental {
   }
 
   parse (code) {
-    // set up parser that parses the AST
+    const result = cherow.parseScript(code)
+    return result.body
   }
 
   convertToXML (parsedJSON) {
-    // convert the result into XML
   }
 
   query (xml, query) {
