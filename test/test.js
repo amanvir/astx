@@ -6,25 +6,24 @@ test.beforeEach(t => {
 })
 
 test('it finds usages of eval', t => {
-
-  //arrange
+  // arrange
   const javascript = `
     const x = '1+1';
     eval(x);
     let y = 222;
   `
-  
-  const query = '//eval';
 
-  //act 
+  const query = '//eval'
+
+  // act
   const output = t.context.m.search(javascript, query)
-  
-  //expected
-  const expected = { 
+
+  // expected
+  const expected = {
     lineNumber: 2,
     code: 'eval(x)'
   }
 
-  //assert
+  // assert
   t.is(output, expected)
 })
