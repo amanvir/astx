@@ -16,7 +16,7 @@ test('it finds usages of eval', t => {
   const query = '//eval'
 
   // act
-  const output = t.context.m.search(javascript, query)
+  const output = t.context.m.search(query, javascript)
 
   // expected
   const expected = {
