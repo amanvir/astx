@@ -31,5 +31,7 @@
     "require": "babel-register",
     "babel": "inherit"
   },
-  "dependencies": {}
+  "dependencies": {
+    "npm": "^5.7.1"
+  }
 }
