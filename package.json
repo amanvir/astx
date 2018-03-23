@@ -1,5 +1,5 @@
 {
-  "name": "mental",
+  "name": "astx",
   "version": "0.0.1",
   "description": "query JavaScript ASTs via xpath",
   "main": "dist/index.js",
