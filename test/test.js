@@ -1,22 +1,18 @@
 import test from 'ava'
-import Mental from '../src/index.js'
+import Astx from '../src/index.js'
 
 test.beforeEach(t => {
-  t.context.m = new Mental()
+  t.context.astx = new Astx()
 })
 
 test('it finds usages of eval', t => {
   // arrange
-  const javascript = `
-    const x = '1+1';
-    eval(x);
-    let y = 222;
-  `
+  const javascript = `const x = 1; eval(x);`;
 
-  const query = '//eval'
+  const query = '//name[.="eval"]'
 
   // act
-  const output = t.context.m.search(query, javascript)
+  const output = t.context.astx.search(query, javascript)
 
   // expected
   const expected = {

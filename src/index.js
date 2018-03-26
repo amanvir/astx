@@ -1,9 +1,9 @@
 import Parser from './parser/parser.js'
-import { json2xml } from 'xml-js'
+import json2xml from 'json2xml'
 import { DOMParser } from 'xmldom'
 import xpath from 'xpath'
 
-class Mental {
+class Astx {
   constructor (src, query) {
     this.src = src
     this.query = query
@@ -16,7 +16,8 @@ class Mental {
   }
 
   convertToXML (parsedJSON) {
-    return json2xml(parsedJSON)
+    const result = json2xml(parsedJSON)
+    return result
   }
 
   queryCode (query, xml) {
@@ -25,10 +26,11 @@ class Mental {
     const parsedXML = doc.parseFromString(xml)
 
     // query it using xpath
-    return xpath.select(query, xml)
+    const result = xpath.select(query, parsedXML)
+    return result;
   }
 
-  search (code, query) {
+  search (query, code) {
     const parsedCode = this.parse(code)
     const xml = this.convertToXML(parsedCode)
     const queryResult = this.queryCode(query, xml)
@@ -40,4 +42,4 @@ class Mental {
   }
 }
 
-module.exports = Mental
+module.exports = Astx
