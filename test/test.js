@@ -7,7 +7,7 @@ test.beforeEach(t => {
 
 test('it finds usages of eval', t => {
   // arrange
-  const javascript = `const x = 1; eval(x);`;
+  const javascript = `const x = 1; eval(x);`
 
   const query = '//name[.="eval"]'
 
@@ -15,11 +15,14 @@ test('it finds usages of eval', t => {
   const output = t.context.astx.search(query, javascript)
 
   // expected
-  const expected = {
-    lineNumber: 2,
-    code: 'eval(x)'
+  const expectedObject = {
+    lineNumber: 1,
+    code: javascript
   }
 
+  let expected = []
+  expected.push(expectedObject)
+
   // assert
-  t.is(output, expected)
+  t.deepEqual(output, expected)
 })

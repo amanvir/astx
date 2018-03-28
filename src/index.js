@@ -27,18 +27,32 @@ class Astx {
 
     // query it using xpath
     const result = xpath.select(query, parsedXML)
-    return result;
+    return result
   }
 
   search (query, code) {
+    this.src = code
     const parsedCode = this.parse(code)
     const xml = this.convertToXML(parsedCode)
     const queryResult = this.queryCode(query, xml)
-    return queryResult
-    // return this.formatResult(queryResult)
+    return this.formatResult(queryResult)
   }
 
   formatResult (queryResult) {
+    let output = []
+    const code = this.src
+
+    queryResult.forEach(result => {
+      const lineNumber = result.firstChild.lineNumber
+      const codeResult = code.split('\n')[lineNumber - 1]
+
+      output.push({
+        lineNumber: lineNumber,
+        code: codeResult
+      })
+    })
+
+    return output
   }
 }
 
